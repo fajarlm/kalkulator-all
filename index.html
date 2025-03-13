@@ -134,15 +134,15 @@
       <h4 id="judul">Mencari Suku ke-N Deret Aritmatika</h4>
       <div class="form">
         <div id="satu" class="mb-3">
-          <label for="a" class="form-label">Suku Pertama (a)</label>
+          <label for="a" id="atas" class="form-label">Suku Pertama (a)</label>
           <input type="number" required class="form-control" id="a" name="a">
         </div>
         <div id="dua" class="mb-3">
-          <label for="b" class="form-label">Beda (b)</label>
+          <label for="b" id="tengah" class="form-label">Beda (b)</label>
           <input type="number" required class="form-control" id="b" name="b">
         </div>
         <div id="tiga" class="mb-3">
-          <label for="n" class="form-label">Suku ke-N (n)</label>
+          <label for="n" id="bawah" class="form-label">Suku ke-N (n)</label>
           <input type="number" required class="form-control" id="n" name="n">
         </div>
         <button class="btn btn-primary" onclick="Hitung()">Hitung</button>
@@ -163,29 +163,41 @@
     let content = document.getElementById('content');
     content.classList.remove('d-none');
     if (pilihan == 'AKeN') {
-      document.getElementById('judul').value = 'Mencari Suku ke-N Deret Aritmatika';
+      document.getElementById('judul').innerText = "Mencari Suku ke-N Deret Aritmatika";
       document.getElementById('a').placeholder = 'Suku Pertama (a)';
       document.getElementById('b').placeholder = 'Beda (b)';
       document.getElementById('n').placeholder = 'Suku ke-N (n)';
+      document.getElementById('tiga').style.display = 'block';
+
     } else if (pilihan == 'AJSn') {
-      document.getElementById('judul').value = 'Mencari Jumlah Sn Deret Aritmatika';
+      document.getElementById('judul').innerText = "Mencari Jumlah Sn Deret Aritmatika";
       document.getElementById('a').placeholder = 'Suku Pertama (a)';
       document.getElementById('b').placeholder = 'Beda (b)';
       document.getElementById('n').placeholder = 'Jumlah Suku (Sn)';
+      document.getElementById('bawah').innerText = "Jumlah Suku (Sn)";
+      document.getElementById('tiga').style.display = 'block';
+
     } else if (pilihan == 'GKeN') {
-      document.getElementById('judul').value = 'Mencari Suku ke-N Deret Geometri';
-      document.getElementById('a').placeholder = 'Suku Pertama (a)';
-      document.getElementById('b').placeholder = 'Beda (b)';
-      document.getElementById('n').placeholder = 'Suku ke-N (n)';
-    } else if (pilihan == 'GKSn') {
-      document.getElementById('judul').value = 'Mencari Jumlah Sn Deret Geometri';
-      document.getElementById('a').placeholder = 'Suku Pertama (a)';
-      document.getElementById('b').placeholder = 'Beda (b)';
-      document.getElementById('n').placeholder = 'Jumlah Suku (Sn)';
-    } else if (pilihan == 'GTH') {
-      document.getElementById('judul').value = 'Mencari Jumlah Tak Hingga Deret Geometri';
+      document.getElementById('judul').innerText = "Mencari Suku ke-N Deret Geometri";
       document.getElementById('a').placeholder = 'Suku Pertama (a)';
       document.getElementById('b').placeholder = 'Rasio (r)';
+      document.getElementById('n').placeholder = 'Suku ke-N (n)';
+      document.getElementById('tengah').innerText = "Rasio (r)";
+      document.getElementById('tiga').style.display = 'block';
+
+    } else if (pilihan == 'GKSn') {
+      document.getElementById('judul').innerText = "Mencari Jumlah Sn Deret Geometri";
+      document.getElementById('a').placeholder = 'Suku Pertama (a)';
+      document.getElementById('b').placeholder = 'Rasio (r)';
+      document.getElementById('n').placeholder = 'Jumlah Suku (Sn)';
+      document.getElementById('tengah').innerText = "Rasio (r)";
+      document.getElementById('bawah').innerText = "Jumlah Suku (Sn)";
+      document.getElementById('tiga').style.display = 'block';
+    } else if (pilihan == 'GTH') {
+      document.getElementById('judul').innerText = "Mencari Jumlah Tak Hingga Deret Geometri";
+      document.getElementById('a').placeholder = 'Suku Pertama (a)';
+      document.getElementById('b').placeholder = 'Rasio (r)';
+      document.getElementById('tengah').innerText = "Rasio (r)";
       document.getElementById('tiga').style.display = 'none';
     }
   }
