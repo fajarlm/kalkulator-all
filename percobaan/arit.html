@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deret Aritmatika</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Deret Aritmatika</h1>
+        
+        <label for="a">Suku Pertama (a):</label>
+        <input type="number" id="a">
+
+        <label for="b">Beda (b):</label>
+        <input type="number" id="b">
+
+        <label for="n">Jumlah Suku (n):</label>
+        <input type="number" id="n">
+
+        <button onclick="hitungDeret()">Hitung</button>
+        
+        <h2>Hasil:</h2>
+        <div class="hasil" id="hasil"></div>
+    </div>
+
+    <script>
+        function hitungDeret() {
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            let n = document.getElementById("n").value;
+            let hasil = document.getElementById("hasil");
+    
+            // Konversi input ke number atau null jika kosong
+            a = a ? parseFloat(a) : null;
+            b = b ? parseFloat(b) : null;
+            n = n ? parseInt(n) : null;
+    
+            // Jika hanya dua nilai yang diketahui, hitung nilai yang tidak diketahui
+            if (a === null && b !== null && n !== null) {
+                a = (n === 1) ? b : "Tidak cukup data";
+            } 
+            else if (b === null && a !== null && n !== null) {
+                b = (n === 1) ? a : "Tidak cukup data";
+            } 
+            else if (n === null && a !== null && b !== null) {
+                n = "Tidak cukup data";
+            }
+    
+            // Jika semua nilai diketahui, hitung jumlah deret
+            if (a !== null && b !== null && n !== null && typeof a === "number" && typeof b === "number" && typeof n === "number") {
+                let Sn = n / 2 * (2*a + (n - 1) * b);
+                hasil.innerHTML = `Jumlah deret aritmatika (S<sub>${n}</sub>) adalah <strong>${Sn}</strong>`;
+                hasil.style.display = "flex";
+                hasil.style.backgroundColor = "";
+            } else {
+                hasil.innerHTML = "Masukkan minimal 2 nilai agar bisa dihitung.";
+                hasil.style.display = "flex";
+                hasil.style.backgroundColor = "#ffff00";
+            }
+        }
+    </script>
+</body>
+</html>
